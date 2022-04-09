@@ -4,7 +4,12 @@ import re
 FOLDER_NAME = r'./potter/'
 PATTERN = r'(?<=Chapter )([\d]*): ([^?=,<]*)'
 
+
 def get_harry_potter_names(folder_name: str, title_pattern: str):
+    """
+    :param folder_name: folder which includes all the files
+    :param title_pattern: title pattern to get title
+    """
     for file in os.listdir(folder_name):
         with open(os.path.join(folder_name, file), mode='r', encoding='utf-8') as html_file:
             regex_result = re.search(title_pattern, html_file.read())
